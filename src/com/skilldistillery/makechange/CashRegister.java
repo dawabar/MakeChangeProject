@@ -2,6 +2,9 @@ package com.skilldistillery.makechange;
 
 public class CashRegister {
 
+		double amount;
+		double price;
+		//Adding variables to show additional updates in GitHub
 	
 //	User Story #1
 //	The user is prompted asking for the price of the item.
