@@ -3,7 +3,7 @@ package com.skilldistillery.makechange;
 import java.util.Scanner;
 
 public class CashRegister {
-	
+
 	public static void main(String[] args) {
 
 //		Create Scanner for user inputs
@@ -33,66 +33,74 @@ public class CashRegister {
 //		TODO: Remove next line after testing
 //		System.out.println(tender);
 		
-		
+//		TODO: Remove next line after testing;
+		System.out.println(tender - cost);
 		
 //		User Story #4
 //		If the amount tendered is more than the cost of the item, display the number of bills and coins that should be given to the customer
 		if (tender > cost) {
 			double diff = tender - cost;
-			int tenBills = (int)((diff - (diff % 10.0))/10.0);
-			diff = diff -= tenBills;
+			int tenBills = (int)((diff - (diff % 10.0))/10);
+			diff -= tenBills * 10;
 //			TODO: Remove next line
 			System.out.println("tenBills: " + tenBills);
+			System.out.println(diff);
 			int fiveBills = (int)((diff - (diff % 5.0))/5.0);
-			diff = diff -= fiveBills;
+			diff -= fiveBills * 5;
 //			TODO: Remove next line
 			System.out.println("fiveBills: " + fiveBills);
-			int oneBills = (int)((diff - (diff % 1.0))/1.0);
-			diff = diff -= oneBills;
+			System.out.println(diff);
+			int oneBills = (int)((diff - (diff % 1.0)));
+			diff -= oneBills;
 //			TODO: Remove next line
 			System.out.println("oneBills: " + oneBills);
+			System.out.println(diff);
 			int quarters = (int)((diff - (diff % 0.25))/0.25);
-			diff = diff -= quarters;
+			diff -= quarters * 0.25;
 //			TODO: Remove next line
 			System.out.println("Quarters: " + quarters);
+			System.out.println(diff);
 			int dimes = (int)((diff - (diff % 0.10))/10);
-			diff = diff -= dimes;
+			diff -= dimes;
 //			TODO: Remove next line
 			System.out.println("Dimes: " + dimes);
-			int nickels = (int)((diff - (diff % 0.05))/20);
-			diff = diff -= nickels;
+			System.out.println(diff);
+			int nickels = (int)((diff - (diff % 0.05))/0.05);
+			diff -= nickels;
 //			TODO: Remove next line
 			System.out.println("Nickels: " + nickels);
-			int pennies = (int)((diff - (diff % 0.01))/0.01);
-			diff = diff -= pennies;
+			System.out.println(diff);
+			int pennies = (int)(Math.round(diff * 100));
+			diff -= pennies;
 //			TODO: Remove next line
 			System.out.println("Pennies: " + pennies);
 //			TODO: Remove next ilne after testing;
+			System.out.println(tender - cost);
+
 			if (diff > 0.0) {
-				System.out.println("There is an error in the difference math.");
-			}
 			
-			if (tenBills > 0) {
-				System.out.println("$10 x " + tenBills);
-			}
-			if (fiveBills > 0) {
-				System.out.println(" $5 x " + fiveBills);
-			}
-			if (oneBills > 0) {
-				System.out.println(" $1 x " + oneBills);
-			}
-			if (quarters > 0) {
-				String quartersOutput = ("25\u00A2" + " x " + Integer.toString(quarters));
-				System.out.println(quartersOutput);
-			}
-			if (dimes > 0) {
-				System.out.println("10\u00A2 x " + dimes);
-			}
-			if (nickels > 0) {
-				System.out.println(" 5\u00A2 x " + nickels);
-			}
-			if (pennies > 0) {
-				System.out.println(" 1\u00A2 x " + pennies);
+				if (tenBills > 0) {
+					System.out.println("$10 x " + tenBills);
+				}
+				if (fiveBills > 0) {
+					System.out.println(" $5 x " + fiveBills);
+				}
+				if (oneBills > 0) {
+					System.out.println(" $1 x " + oneBills);
+				}
+				if (quarters > 0) {
+					String quartersOutput = ("25\u00A2" + " x " + Integer.toString(quarters));
+					System.out.println(quartersOutput);
+				}
+				if (dimes > 0) {
+					System.out.println("10\u00A2 x " + dimes);
+				}
+				if (nickels > 0) {
+					System.out.println(" 5\u00A2 x " + nickels);
+				}
+				if (pennies > 0) {
+					System.out.println(" 1\u00A2 x " + pennies);
+				}
 			}
 		}
 
